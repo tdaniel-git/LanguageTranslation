@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NLLB Translator — Multilingual Customer Support</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>Multilingual Support Translator</h1>
+      <p class="sub">Powered by <code>facebook/nllb-200-distilled-600M</code></p>
+      <div id="modelStatus" class="status status--loading">Checking model status…</div>
+    </header>
+
+    <section class="panel">
+      <label class="field">
+        <span class="field__label">Customer message</span>
+        <textarea id="input" rows="6" maxlength="4000"
+          placeholder="e.g. Hi, my QuickShip order #INV-9932 is late & I got ERR-500 at https://acme.io 😤 plz help!"></textarea>
+        <span id="charCount" class="charcount">0 / 4000</span>
+      </label>
+
+      <div class="controls">
+        <label class="field field--inline">
+          <span class="field__label">Translate to</span>
+          <select id="target"></select>
+        </label>
+        <label class="field field--inline">
+          <span class="field__label">Source</span>
+          <select id="source">
+            <option value="">Auto-detect</option>
+          </select>
+        </label>
+        <button id="translateBtn" class="btn" type="button">Translate</button>
+      </div>
+    </section>
+
+    <section id="resultPanel" class="panel result hidden">
+      <div class="result__meta">
+        <span id="detectedChip" class="chip chip--info hidden"></span>
+        <span id="targetChip" class="chip hidden"></span>
+      </div>
+      <div class="result__box">
+        <span class="field__label">Translation</span>
+        <p id="output" class="output"></p>
+      </div>
+      <div id="preservedBlock" class="preserved hidden">
+        <span class="field__label">Preserved verbatim (not translated)</span>
+        <div id="preservedList" class="chips"></div>
+      </div>
+    </section>
+
+    <section id="errorPanel" class="panel error hidden">
+      <p id="errorMsg"></p>
+    </section>
+
+    <footer class="footer">
+      <p>Supports English ↔ French · Spanish · Hindi · Tamil. Error codes, product names,
+         versions, emails, URLs, and emoji are preserved automatically.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

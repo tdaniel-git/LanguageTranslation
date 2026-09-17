@@ -1,0 +1,6 @@
+# Backend + translation engine (reuses the notebook stack)
+flask>=3.0,<4
+transformers>=4.41,<5
+torch>=2.2
+sentencepiece>=0.1.99
+lingua-language-detector>=2.0
