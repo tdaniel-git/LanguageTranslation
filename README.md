@@ -51,3 +51,4 @@ docker run --rm -p 8000:8000 -v nllb_hf_cache:/app/.hf_cache nllb-translator
 Requirements: Python 3.9–3.11. GPU optional but much faster (see the app README for the CUDA
 PyTorch install command).
 # LanguageTranslation
+# LanguageTranslation
